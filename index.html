@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Synthesis & Final Portfolio - Daily Lesson Plan 9</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        montanoBlue: '#1269A8',
+                        montanoYellow: '#F7D615',
+                        montanoGreen: '#54887D',
+                        montanoLightBlue: '#88B5C7',
+                        montanoOlive: '#A6B046',
+                        montanoBg: '#F2F5E9'
+                    },
+                    fontFamily: {
+                        sans: ['Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F2F5E9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .tab-btn.active {
+            background-color: #1269A8;
+            color: #ffffff;
+            border-bottom: 4px solid #F7D615;
+            transform: translateY(-2px);
+        }
+        .board-card {
+            background: #ffffff;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border: 2px solid #88B5C7;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800 flex flex-col justify-between p-2 md:p-6">
+
+    <!-- TOP HEADER / BANNER -->
+    <header class="board-card rounded-2xl p-4 md:p-6 mb-6 relative overflow-hidden bg-white">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b-2 border-gray-100 pb-4">
+            <!-- Colegio Montano Branding -->
+            <div class="flex items-center gap-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyEop0yf6lZ7Jk9MILZxF1rBj4Oqs5esyhIQ&s" 
+                     alt="Colegio Montano Logo" 
+                     class="h-16 w-auto object-contain rounded-lg shadow-sm"
+                     onerror="this.src='https://placehold.co/120x60/1269A8/ffffff?text=Montano'">
+                <div>
+                    <h1 class="text-2xl md:text-3xl font-bold text-montanoBlue tracking-tight">COLEGIO MONTANO</h1>
+                    <p class="text-xs md:text-sm font-semibold text-montanoGreen tracking-wide uppercase">Interactive Digital Classroom Board</p>
+                </div>
+            </div>
+
+            <!-- Action Controls -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleFullScreen()" class="flex items-center gap-2 bg-montanoBlue hover:bg-opacity-90 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition duration-200 text-sm">
+                    <i class="fa-solid fa-expand"></i>
+                    <span>Fullscreen</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Class Plan Metadata -->
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mt-4 text-xs md:text-sm">
+            <div class="bg-blue-50 p-2.5 rounded-lg border border-blue-100">
+                <span class="block text-montanoBlue font-bold text-xs uppercase">Course</span>
+                <span class="font-semibold text-gray-700">Psychology</span>
+            </div>
+            <div class="bg-blue-50 p-2.5 rounded-lg border border-blue-100">
+                <span class="block text-montanoBlue font-bold text-xs uppercase">Grade</span>
+                <span class="font-semibold text-gray-700">5to Mercadotecnia</span>
+            </div>
+            <div class="bg-blue-50 p-2.5 rounded-lg border border-blue-100">
+                <span class="block text-montanoBlue font-bold text-xs uppercase">Unit / Plan</span>
+                <span class="font-semibold text-gray-700">Unit 1 - Plan #9</span>
+            </div>
+            <div class="bg-blue-50 p-2.5 rounded-lg border border-blue-100">
+                <span class="block text-montanoBlue font-bold text-xs uppercase">Date</span>
+                <span class="font-semibold text-gray-700">March 15 - 19</span>
+            </div>
+            <div class="bg-blue-50 p-2.5 rounded-lg border border-blue-100 col-span-2 md:col-span-1">
+                <span class="block text-montanoBlue font-bold text-xs uppercase">Teacher</span>
+                <span class="font-semibold text-gray-700">Elysa López</span>
+            </div>
+            <div class="bg-yellow-50 p-2.5 rounded-lg border border-yellow-200 col-span-2 md:col-span-2">
+                <span class="block text-montanoBlue font-bold text-xs uppercase">Topic</span>
+                <span class="font-bold text-montanoBlue">Unit Synthesis & Final Portfolio</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- PEDAGOGICAL ALIGNMENT COLLAPSIBLE SUMMARY -->
+    <section class="mb-6">
+        <details class="board-card rounded-2xl bg-white overflow-hidden group">
+            <summary class="p-4 font-bold text-montanoBlue cursor-pointer flex justify-between items-center bg-gray-50 hover:bg-gray-100 transition">
+                <span class="flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-montanoOlive"></i>
+                    Pedagogical Framework & Institution Alignment (CNB Guatemala & Montano Habits)
+                </span>
+                <i class="fa-solid fa-chevron-down text-montanoBlue group-open:rotate-180 transition-transform"></i>
+            </summary>
+            <div class="p-5 grid grid-cols-1 md:grid-cols-3 gap-4 border-t border-gray-100 text-xs md:text-sm">
+                <div class="space-y-2">
+                    <h4 class="font-bold text-montanoGreen flex items-center gap-1.5">
+                        <i class="fa-solid fa-bullseye"></i> CNB Competence & Achievement
+                    </h4>
+                    <p class="text-gray-600"><strong>Competence:</strong> Synthesizes foundational concepts of scientific psychology, historical developments, theoretical perspectives, and ethical marketing principles to compile a comprehensive unit portfolio.</p>
+                    <p class="text-gray-600"><strong>Learning Outcome:</strong> Demonstrates mastery by integrating dual psychological perspectives to explain consumer decisions and finalizing a verified digital portfolio.</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-montanoGreen flex items-center gap-1.5">
+                        <i class="fa-solid fa-brain"></i> Key Competencies & Montano Habits
+                    </h4>
+                    <p class="text-gray-600"><strong>Skills:</strong> Holistic Synthesis, Dual-Perspective Evaluation, Peer Review Audit, Portfolio Curation.</p>
+                    <p class="text-gray-600"><strong>Montano Habits:</strong> <em>Begin with the End in Mind</em> (completing unit goals) & <em>Sharpen the Saw</em> (self-assessing and refining final portfolio evidence).</p>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="font-bold text-montanoGreen flex items-center gap-1.5">
+                        <i class="fa-solid fa-box-open"></i> Resources & Assessment
+                    </h4>
+                    <p class="text-gray-600"><strong>Resources:</strong> Interactive Unit Concept Map, Dual-Perspective Case Cards, Peer Audit Checklist, Activity 4 Submission Hub.</p>
+                    <p class="text-gray-600"><strong>3 Assessment Moments:</strong> Unit Concept Retrieval Map (Initial), Dual-Perspective Consumer Explanation (Formative), Final Portfolio Peer Audit & Rubric (Summative).</p>
+                </div>
+            </div>
+        </details>
+    </section>
+
+    <!-- MAIN PEDAGOGICAL SEQUENCE (TABS) -->
+    <main class="board-card rounded-2xl p-4 md:p-6 mb-6 bg-white flex-grow">
+        <!-- TAB NAVIGATION -->
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 mb-6 border-b border-gray-200 pb-4">
+            <button onclick="switchTab(1)" id="tab-btn-1" class="tab-btn active p-3 rounded-xl font-bold text-sm flex flex-col items-center justify-center gap-1 transition-all bg-gray-100 text-gray-700">
+                <span class="text-xs uppercase tracking-wider text-montanoYellow font-black">Stage I (~10 min)</span>
+                <span><i class="fa-solid fa-diagram-project mr-1"></i> Concept Map Review</span>
+            </button>
+            <button onclick="switchTab(2)" id="tab-btn-2" class="tab-btn p-3 rounded-xl font-bold text-sm flex flex-col items-center justify-center gap-1 transition-all bg-gray-100 text-gray-700">
+                <span class="text-xs uppercase tracking-wider text-montanoYellow font-black">Stage II (15 min)</span>
+                <span><i class="fa-solid fa-glasses mr-1"></i> Dual-Perspective Challenge</span>
+            </button>
+            <button onclick="switchTab(3)" id="tab-btn-3" class="tab-btn p-3 rounded-xl font-bold text-sm flex flex-col items-center justify-center gap-1 transition-all bg-gray-100 text-gray-700">
+                <span class="text-xs uppercase tracking-wider text-montanoYellow font-black">Stage III (20 min)</span>
+                <span><i class="fa-solid fa-folder-tree mr-1"></i> Portfolio & Peer Checklist</span>
+            </button>
+            <button onclick="switchTab(4)" id="tab-btn-4" class="tab-btn p-3 rounded-xl font-bold text-sm flex flex-col items-center justify-center gap-1 transition-all bg-gray-100 text-gray-700">
+                <span class="text-xs uppercase tracking-wider text-montanoYellow font-black">Stage IV (10 min)</span>
+                <span><i class="fa-solid fa-scale-balanced mr-1"></i> Ethical Synthesis</span>
+            </button>
+            <button onclick="switchTab(5)" id="tab-btn-5" class="tab-btn p-3 rounded-xl font-bold text-sm flex flex-col items-center justify-center gap-1 transition-all bg-gray-100 text-gray-700">
+                <span class="text-xs uppercase tracking-wider text-montanoYellow font-black">Stage V (5 min)</span>
+                <span><i class="fa-solid fa-file-export mr-1"></i> Exit Ticket & Activity 4</span>
+            </button>
+        </div>
+
+        <!-- TAB CONTENT CONTAINER -->
+        <div id="tab-contents">
+            <!-- STAGE I: CONCEPT MAP REVIEW -->
+            <div id="tab-1" class="tab-content space-y-6">
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-montanoBlue p-5 rounded-r-xl">
+                    <h3 class="text-xl font-bold text-montanoBlue mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-sitemap text-montanoYellow"></i> Stage I: Unit 1 Synthesis Concept Map (~10 Minutes)
+                    </h3>
+                    <p class="text-gray-700 text-sm md:text-base">
+                        Systematic review connecting all key building blocks covered throughout Unit 1: Psychology as a Science, Historical Antecedents, Early Schools, Modern Perspectives, and Consumer Behavior.
+                    </p>
+                </div>
+
+                <!-- Unit Concept Map Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs">
+                    <div class="bg-white p-4 rounded-xl border border-blue-200 shadow-sm">
+                        <span class="bg-blue-100 text-montanoBlue font-bold px-2 py-0.5 rounded text-[10px] uppercase">Pillars 1 & 2</span>
+                        <h4 class="font-bold text-gray-800 text-sm mt-2">Science & Fields</h4>
+                        <ul class="text-gray-600 mt-2 space-y-1 list-disc list-inside">
+                            <li>Behavior vs. Mental Processes</li>
+                            <li>4 Goals: Describe, Explain, Predict, Influence</li>
+                            <li>Evidence vs. Opinion</li>
+                            <li>Consumer & I-O Psychology</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-green-200 shadow-sm">
+                        <span class="bg-green-100 text-montanoGreen font-bold px-2 py-0.5 rounded text-[10px] uppercase">Pillars 3 & 4</span>
+                        <h4 class="font-bold text-gray-800 text-sm mt-2">History & Early Schools</h4>
+                        <ul class="text-gray-600 mt-2 space-y-1 list-disc list-inside">
+                            <li>Rationalism vs. Empiricism (Descartes / Locke)</li>
+                            <li>Wundt's 1879 Leipzig Laboratory</li>
+                            <li>Structuralism vs. Functionalism</li>
+                            <li>Psychoanalysis, Behaviorism, Gestalt</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-purple-200 shadow-sm">
+                        <span class="bg-purple-100 text-purple-700 font-bold px-2 py-0.5 rounded text-[10px] uppercase">Pillar 5</span>
+                        <h4 class="font-bold text-gray-800 text-sm mt-2">7 Modern Lenses</h4>
+                        <ul class="text-gray-600 mt-2 space-y-1 list-disc list-inside">
+                            <li>Biological (Physiology/Neuro)</li>
+                            <li>Behavioral (Conditioning)</li>
+                            <li>Cognitive (Information Processing)</li>
+                            <li>Psychodynamic / Humanistic</li>
+                            <li>Sociocultural & Evolutionary</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-yellow-200 shadow-sm">
+                        <span class="bg-yellow-100 text-yellow-800 font-bold px-2 py-0.5 rounded text-[10px] uppercase">Pillar 6</span>
+                        <h4 class="font-bold text-gray-800 text-sm mt-2">Marketing Applications</h4>
+                        <ul class="text-gray-600 mt-2 space-y-1 list-disc list-inside">
+                            <li>Attention & Perception Triggers</li>
+                            <li>Motivation & Attitude Formation</li>
+                            <li>Ethical Persuasion vs. Manipulation</li>
+                            <li>Campaign Deconstruction</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Guided Interactive Checking Button -->
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200 flex items-center justify-between">
+                    <div>
+                        <h5 class="font-bold text-montanoBlue text-sm">Interactive Synthesis Challenge</h5>
+                        <p class="text-xs text-gray-600">Which overarching framework connects all 4 goals of psychology to marketing strategy?</p>
+                    </div>
+                    <button onclick="toggleAnswer('map-synth')" class="bg-montanoOlive text-white text-xs font-bold py-2 px-4 rounded hover:bg-opacity-90 transition">
+                        Show Connection
+                    </button>
+                </div>
+                <div id="map-synth" class="hidden p-3 bg-white border border-montanoOlive rounded-lg text-xs text-gray-700">
+                    <strong>Synthesis Connection:</strong> Scientific Marketing uses <em>Description</em> (market data) and <em>Explanation</em> (cognitive/biological lenses) to <em>Predict</em> purchasing habits and ethically <em>Influence</em> consumer decisions.
+                </div>
+            </div>
+
+            <!-- STAGE II: DUAL-PERSPECTIVE CHALLENGE -->
+            <div id="tab-2" class="tab-content hidden space-y-6">
+                <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border-l-4 border-montanoGreen p-5 rounded-r-xl">
+                    <h3 class="text-xl font-bold text-montanoGreen mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-glasses"></i> Stage II: Dual-Perspective Consumer Explanation (~15 Minutes)
+                    </h3>
+                    <p class="text-gray-700 text-sm">Explain a real-world purchasing choice by integrating TWO distinct psychological perspectives.</p>
+                </div>
+
+                <!-- Case Scenario Card -->
+                <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                    <span class="bg-montanoBlue text-white text-xs font-bold px-2.5 py-1 rounded uppercase">Real-World Application Challenge</span>
+                    <h4 class="font-bold text-gray-800 text-base mt-2">Scenario: "The Sudden Upgrade to an Eco-Friendly Electric Car"</h4>
+                    <p class="text-xs md:text-sm text-gray-600 mt-1">A consumer trades in a perfectly functional gas-powered sedan to buy a high-end electric vehicle. Explain this behavior using TWO lenses:</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-xs md:text-sm">
+                        <!-- Perspective A -->
+                        <div class="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                            <h5 class="font-bold text-montanoBlue mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-seedling text-emerald-600"></i> Perspective 1: Humanistic (Self-Actualization)
+                            </h5>
+                            <p class="text-gray-700">The buyer seeks alignment with their core personal values regarding environmental stewardship, deriving a sense of personal growth and authenticity.</p>
+                        </div>
+
+                        <!-- Perspective B -->
+                        <div class="p-4 bg-yellow-50 rounded-xl border border-yellow-200">
+                            <h5 class="font-bold text-montanoBlue mb-1 flex items-center gap-1.5">
+                                <i class="fa-solid fa-users text-purple-600"></i> Perspective 2: Sociocultural (Social Proof & Status)
+                            </h5>
+                            <p class="text-gray-700">The buyer conforms to the expectations of their peer group, signaling environmental awareness and modern social status within their community.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Worksheet Prompt -->
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <h5 class="font-bold text-montanoBlue text-sm mb-1">Student Pair Activity:</h5>
+                    <p class="text-xs text-gray-600">Select any consumer product (e.g., luxury coffee, gaming console) and write down a 2-sentence explanation combining <strong>Cognitive + Behavioral</strong> or <strong>Biological + Evolutionary</strong> perspectives.</p>
+                </div>
+            </div>
+
+            <!-- STAGE III: PORTFOLIO & PEER CHECKLIST -->
+            <div id="tab-3" class="tab-content hidden space-y-6">
+                <div class="bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-montanoYellow p-5 rounded-r-xl">
+                    <h3 class="text-xl font-bold text-gray-800 mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-folder-tree text-montanoBlue"></i> Stage III: Portfolio Organization & Peer Audit (~20 Minutes)
+                    </h3>
+                    <p class="text-gray-700 text-sm">Organize Unit 1 portfolio artifacts and conduct peer audit verification using Montano Habit: <em>Sharpen the Saw</em>.</p>
+                </div>
+
+                <!-- Interactive Portfolio Checklist Table -->
+                <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                    <h4 class="font-bold text-montanoBlue mb-3">Unit 1 Digital Portfolio Evidence Verification</h4>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs md:text-sm text-left border-collapse">
+                            <thead class="bg-montanoBlue text-white uppercase text-xs">
+                                <tr>
+                                    <th class="p-3 rounded-tl-lg">Artifact #</th>
+                                    <th class="p-3">Required Unit Evidence</th>
+                                    <th class="p-3">Key Focus Area</th>
+                                    <th class="p-3 rounded-tr-lg text-center">Status Check</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 text-gray-700">
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-bold text-montanoBlue">Activity #1</td>
+                                    <td class="p-3 font-medium">Fields of Psychology & Applications Matrix</td>
+                                    <td class="p-3">Matching research questions to consumer/I-O psychology.</td>
+                                    <td class="p-3 text-center"><input type="checkbox" checked class="h-4 w-4 text-montanoBlue rounded"></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-bold text-montanoBlue">Activity #2</td>
+                                    <td class="p-3 font-medium">Early Schools of Thought Comparison Chart</td>
+                                    <td class="p-3">Structuralism, Functionalism, Psychoanalysis, Behaviorism, Gestalt.</td>
+                                    <td class="p-3 text-center"><input type="checkbox" checked class="h-4 w-4 text-montanoBlue rounded"></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="p-3 font-bold text-montanoBlue">Activity #3</td>
+                                    <td class="p-3 font-medium">Ad Campaign Deconstruction & Ethical Redesign</td>
+                                    <td class="p-3">Identifying stereotypes, persuasion vs. manipulation.</td>
+                                    <td class="p-3 text-center"><input type="checkbox" checked class="h-4 w-4 text-montanoBlue rounded"></td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 bg-yellow-50/50">
+                                    <td class="p-3 font-bold text-montanoOlive">Activity #4</td>
+                                    <td class="p-3 font-bold text-montanoBlue">Unit 1 Synthesis Reflection & Portfolio Binder</td>
+                                    <td class="p-3 font-semibold">Dual-perspective essay + portfolio verification.</td>
+                                    <td class="p-3 text-center"><input type="checkbox" class="h-4 w-4 text-montanoBlue rounded"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STAGE IV: ETHICAL SYNTHESIS -->
+            <div id="tab-4" class="tab-content hidden space-y-6">
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 border-l-4 border-montanoOlive p-5 rounded-r-xl">
+                    <h3 class="text-xl font-bold text-montanoBlue mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced text-montanoYellow"></i> Stage IV: Reflection on Psychology & Ethical Marketing (~10 Minutes)
+                    </h3>
+                    <p class="text-gray-700 text-sm">Class reflection on ethical responsibilities when applying psychological tools to consumer behavior.</p>
+                </div>
+
+                <!-- Ethical Code Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs md:text-sm">
+                    <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                        <h4 class="font-bold text-montanoGreen text-base mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-shield-cat text-green-600"></i> The Ethical Marketer's Creed
+                        </h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-2">
+                            <li>Respect consumer autonomy and psychological vulnerability.</li>
+                            <li>Use evidence-based insights to inform and add genuine value.</li>
+                            <li>Reject deceptive dark patterns, fake scarcity, and false testimonials.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
+                        <h4 class="font-bold text-montanoBlue text-base mb-2 flex items-center gap-2">
+                            <i class="fa-solid fa-handshake-angle text-montanoBlue"></i> Montano Habit: Think Win-Win
+                        </h4>
+                        <p class="text-gray-600">True commercial success comes from creating <strong>Win-Win transactions</strong> where the consumer receives real satisfaction and the brand builds long-term trust, guided by scientific understanding.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STAGE V: EXIT TICKET & ACTIVITY 4 DUE -->
+            <div id="tab-5" class="tab-content hidden space-y-6">
+                <div class="bg-gradient-to-r from-emerald-50 to-teal-50 border-l-4 border-montanoGreen p-5 rounded-r-xl">
+                    <h3 class="text-xl font-bold text-montanoGreen mb-1 flex items-center gap-2">
+                        <i class="fa-solid fa-file-export text-montanoYellow"></i> Stage V: Exit Ticket & Activity #4 Due Checkpoint (~5 Minutes)
+                    </h3>
+                    <p class="text-gray-700 text-sm">Final Unit 1 submission and reflection ticket.</p>
+                </div>
+
+                <!-- Activity 4 Submission Card -->
+                <div class="bg-yellow-50 p-5 rounded-xl border border-yellow-300 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div>
+                        <span class="bg-montanoYellow text-montanoBlue font-black text-xs px-2.5 py-1 rounded uppercase tracking-wide">Final Deadline</span>
+                        <h4 class="text-lg font-bold text-montanoBlue mt-1">Activity #4 Portfolio Due Right Now</h4>
+                        <p class="text-xs text-gray-600">Verify that all 4 Unit 1 artifacts are complete, peer-reviewed, and uploaded to your digital portfolio folder.</p>
+                    </div>
+                    <button class="bg-montanoBlue hover:bg-opacity-90 text-white font-bold text-xs py-3 px-5 rounded-xl shadow-md transition">
+                        <i class="fa-solid fa-cloud-arrow-up mr-1"></i> Submit Unit 1 Portfolio
+                    </button>
+                </div>
+
+                <!-- Exit Ticket -->
+                <div class="bg-blue-50 p-5 rounded-xl border border-montanoLightBlue">
+                    <h4 class="font-bold text-montanoBlue text-sm mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-ticket"></i> Final Unit 1 Exit Ticket Prompt (Individual)
+                    </h4>
+                    <p class="text-xs md:text-sm text-gray-700">Write 1 paragraph: <strong>"How has understanding psychology as a scientific discipline changed your perception of advertising, consumer choices, and your future role as a marketing professional?"</strong></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- INTERACTIVE PLENARY EVALUATION RUBRIC -->
+    <section class="board-card rounded-2xl p-4 md:p-6 bg-white">
+        <h3 class="text-lg font-bold text-montanoBlue mb-4 flex items-center gap-2 border-b pb-2">
+            <i class="fa-solid fa-clipboard-check text-montanoGreen"></i> Plenary Evaluation Rubric (Interactive Scoring Tool for Teacher)
+        </h3>
+        
+        <div class="overflow-x-auto">
+            <table class="w-full text-xs md:text-sm text-left border-collapse">
+                <thead class="bg-gray-100 text-montanoBlue uppercase font-bold text-xs">
+                    <tr>
+                        <th class="p-3 border">Criteria</th>
+                        <th class="p-3 border">Needs Improvement (1 pt)</th>
+                        <th class="p-3 border">Satisfactory (2 pts)</th>
+                        <th class="p-3 border">Exemplary (3 pts)</th>
+                        <th class="p-3 border text-center">Interactive Score</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y text-gray-700">
+                    <tr>
+                        <td class="p-3 font-bold border bg-gray-50">1. Unit Concept Synthesis</td>
+                        <td class="p-3 border">Incomplete connection between unit topics.</td>
+                        <td class="p-3 border">Synthesizes key concepts across history, schools, and perspectives with minor gaps.</td>
+                        <td class="p-3 border">Masterfully connects scientific methods, theoretical lenses, and marketing applications.</td>
+                        <td class="p-3 border text-center">
+                            <select onchange="calculateRubricScore()" class="rubric-score bg-blue-50 border border-blue-200 rounded p-1 font-bold text-montanoBlue">
+                                <option value="1">1 pt</option>
+                                <option value="2">2 pts</option>
+                                <option value="3" selected>3 pts</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-bold border bg-gray-50">2. Dual-Perspective Integration</td>
+                        <td class="p-3 border">Explains consumer choice using only 1 perspective.</td>
+                        <td class="p-3 border">Integrates 2 perspectives into consumer scenario at a basic level.</td>
+                        <td class="p-3 border">Articulates sophisticated, seamless synthesis of 2 distinct psychological lenses.</td>
+                        <td class="p-3 border text-center">
+                            <select onchange="calculateRubricScore()" class="rubric-score bg-blue-50 border border-blue-200 rounded p-1 font-bold text-montanoBlue">
+                                <option value="1">1 pt</option>
+                                <option value="2">2 pts</option>
+                                <option value="3" selected>3 pts</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-bold border bg-gray-50">3. Portfolio Completeness & Audit</td>
+                        <td class="p-3 border">Missing required artifacts; skipped peer audit.</td>
+                        <td class="p-3 border">All 4 artifacts submitted; basic peer verification.</td>
+                        <td class="p-3 border">Flawless digital portfolio binder with thorough peer audit (Habit: Sharpen the Saw).</td>
+                        <td class="p-3 border text-center">
+                            <select onchange="calculateRubricScore()" class="rubric-score bg-blue-50 border border-blue-200 rounded p-1 font-bold text-montanoBlue">
+                                <option value="1">1 pt</option>
+                                <option value="2">2 pts</option>
+                                <option value="3" selected>3 pts</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 font-bold border bg-gray-50">4. Ethical Reflection</td>
+                        <td class="p-3 border">Fails to demonstrate ethical marketing awareness.</td>
+                        <td class="p-3 border">Reflects on ethical persuasion vs. manipulation clearly.</td>
+                        <td class="p-3 border">Delivers compelling reflection on ethical leadership and Win-Win marketing values.</td>
+                        <td class="p-3 border text-center">
+                            <select onchange="calculateRubricScore()" class="rubric-score bg-blue-50 border border-blue-200 rounded p-1 font-bold text-montanoBlue">
+                                <option value="1">1 pt</option>
+                                <option value="2">2 pts</option>
+                                <option value="3" selected>3 pts</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Rubric Total Result -->
+        <div class="mt-4 flex justify-between items-center bg-montanoBg p-3 rounded-xl border border-montanoOlive">
+            <span class="font-bold text-montanoBlue text-sm">Total Unit Assessment Score:</span>
+            <span id="rubric-total" class="text-lg font-black text-montanoBlue bg-white px-4 py-1 rounded-lg border border-gray-200">12 / 12 pts</span>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="mt-6 text-center text-xs text-gray-500 py-2">
+        Colegio Montano &copy; 2026 | Pedagogical Digital Board System | Model CNB Guatemala
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Tab Navigation Switcher
+        function switchTab(tabIndex) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`tab-${tabIndex}`).classList.remove('hidden');
+            document.getElementById(`tab-btn-${tabIndex}`).classList.add('active');
+        }
+
+        // Toggle Hidden Solution / Content Accordion
+        function toggleAnswer(id) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+
+        // Fullscreen Toggle Functionality
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+
+        // Rubric Calculation Logic
+        function calculateRubricScore() {
+            const selects = document.querySelectorAll('.rubric-score');
+            let total = 0;
+            selects.forEach(select => {
+                total += parseInt(select.value, 10);
+            });
+            document.getElementById('rubric-total').innerText = `${total} / 12 pts`;
+        }
+    </script>
+</body>
+</html>
